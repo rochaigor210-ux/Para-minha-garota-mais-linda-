@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoje é o Dia Dela 🎉</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    background: radial-gradient(circle at top, #ff758c, #ff7eb3, #8e2de2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow:hidden;
+    color:white;
+    text-align:center;
+}
+
+.container{
+    animation: aparecer 2s ease-in-out;
+}
+
+h1{
+    font-size:2.5rem;
+    margin:0;
+    animation: brilho 2s infinite alternate;
+}
+
+p{
+    font-size:1.1rem;
+    margin-top:15px;
+    max-width:500px;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4e9b;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#ffe3f1;
+}
+
+@keyframes brilho{
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 25px #fff176; }
+}
+
+@keyframes aparecer{
+    from { opacity:0; transform:translateY(30px); }
+    to { opacity:1; transform:translateY(0); }
+}
+
+.confete{
+    position:absolute;
+    width:8px;
+    height:8px;
+    top:-10px;
+    animation: cair linear forwards;
+}
+
+@keyframes cair{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+    <h1>🎉 Feliz Aniversário 🎉</h1>
+    <p>
+        Hoje o universo acordou diferente...  
+        Porque ele sabe que é o dia de celebrar você.  
+        Que esse novo ano venha carregado de sonhos realizados,  
+        sorrisos sinceros e amor em cada detalhe.  
+        Você merece o mundo inteiro. 💖
+    </p>
+    <button onclick="celebrar()">Clique para Celebrar 🎊</button>
+</div>
+
+<script>
+function celebrar(){
+    for(let i=0;i<150;i++){
+        let confete = document.createElement("div");
+        confete.classList.add("confete");
+        confete.style.left = Math.random() * window.innerWidth + "px";
+        confete.style.background = `hsl(${Math.random()*360},100%,50%)`;
+        confete.style.animationDuration = (Math.random()*3+2)+"s";
+        document.body.appendChild(confete);
+    }
+}
+</script>
+
+</body>
+</html>
